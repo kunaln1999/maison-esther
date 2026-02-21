@@ -8,6 +8,7 @@ main-footer {
     width: 100%;
     z-index: -1;
     overflow: hidden;
+    padding-bottom: env(safe-area-inset-bottom);
 }
 
 /* Decorative Background Text */
@@ -219,7 +220,7 @@ main-footer .social-row svg {
     }
 
     main-footer footer {
-        padding: 60px max(16px, 4%) calc(40px + env(safe-area-inset-bottom));
+        padding: 60px max(16px, 4%) 40px;
     }
 
     main-footer .footer-top .logo {
