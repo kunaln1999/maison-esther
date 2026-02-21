@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maison Esther | Luxury Fragrances</title>
+    <meta name="description"
+        content="Experience the essence of elegance with Maison Esther. Discover our curated collection of luxury perfumes.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Handlee&display=swap"
+        rel="stylesheet">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="footer.css">
+
+    <!-- Components -->
+    <script src="components/header.js" defer></script>
+    <script src="components/footer.js" defer></script>
+
+    <!-- Application Logic -->
+    <script src="app.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Reusable Header Component -->
+    <main-header></main-header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <section class="hero">
+            <div class="hero-content">
+                <span class="category">Timeless Fragrance</span>
+                <h1 class="hero-title">Essence of Pure Desire</h1>
+                <p class="hero-description">Our collection celebrates enduring formulations and contemporary
+                    expressions, each crafted to leave a memorable impression.</p>
+                <div class="cta-group">
+                    <a href="#collection" class="btn btn-primary">
+                        <span>Discover our Aromas</span>
+                        <svg width="22" height="22" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 13H21M21 13L14 6M21 13L14 20" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <!-- Background Video -->
+            <div class="video-container">
+                <video autoplay muted loop playsinline class="hero-video"
+                    style="width: 100%; height: 100%; object-fit: cover;">
+                    <source src="assets/30svideo2.mp4" type="video/mp4">
+                </video>
+                <div class="video-overlay"></div>
+            </div>
+        </section>
+
+        <!-- Product Section -->
+        <section class="collection-section" id="collection">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2>OUR BESTSELLERS</h2>
+                    <a href="#collection" class="view-all-link">View all</a>
+                </div>
+                <div class="product-grid" id="shopify-products">
+                    <!-- Products will be injected here via JS -->
+                </div>
+            </div>
+        </section>
+        <!-- Editorial Campaign Section -->
+        <section class="campaign-section" id="campaign">
+            <div class="campaign-container">
+                <div class="campaign-grid">
+                    <!-- Left Large Card (50% width, full height) -->
+                    <div class="campaign-card large-card">
+                        <div class="card-image">
+                            <img src="assets/istawa-pop3.png" alt="Maison Esther Campaign" loading="lazy">
+                        </div>
+                        <div class="card-overlay">
+                            <a href="#shop" class="btn-shop-now">Shop Now</a>
+                        </div>
+                    </div>
+
+                    <!-- Right Column (50% width) -->
+                    <div class="campaign-column-right">
+                        <!-- Top Right Card (half height) -->
+                        <div class="campaign-card horizontal-card">
+                            <div class="card-image">
+                                <img src="assets/ether-pop.png" alt="Applying Essence" loading="lazy">
+                            </div>
+                            <div class="card-overlay">
+                                <a href="#shop" class="btn-shop-now">Shop Now</a>
+                            </div>
+                        </div>
+
+                        <!-- Bottom Right Card (half height) -->
+                        <div class="campaign-card horizontal-card">
+                            <div class="card-image">
+                                <img src="assets/bottom-third.png" alt="Aura Botanica Bottle" loading="lazy">
+                            </div>
+                            <div class="card-overlay">
+                                <a href="#shop" class="btn-shop-now">Shop Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section class="stories-section" id="stories">
+            <div class="section-header">
+                <div class="header-text">
+                    <h2>WATCH AND BUY</h2>
+                </div>
+            </div>
+            <div class="stories-wrapper">
+                <div class="stories-container" id="stories-grid">
+                    <!-- Stories will be injected here via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Gift Section -->
+        <section class="gift-section" id="gifts">
+            <div class="gift-card">
+                <div class="gift-image-container">
+                    <img src="assets/gift-set.png" alt="Exquisite Gift Sets" loading="lazy">
+                </div>
+                <div class="gift-content">
+                    <span class="magazine-tag">Exclusive Assortment</span>
+                    <h2>The Art of Gifting</h2>
+                    <p>Curated collections of our finest botanical formulations, housed in elegant, sustainable
+                        packaging designed to be treasured.</p>
+                    <a href="#shop-gifts" class="btn btn-secondary">
+                        <span>Explore Gift Sets</span>
+                        <svg width="22" height="22" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 13H21M21 13L14 6M21 13L14 20" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Arrivals Section -->
+        <section class="new-arrivals-section" id="new-arrivals">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2>NEW ARRIVALS</h2>
+                    <a href="#new-arrivals" class="view-all-link">View all</a>
+                </div>
+                <div class="arrivals-grid" id="new-arrivals-grid">
+                    <!-- Products will be injected here via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Full Screen Cover Section -->
+        <section class="full-screen-cover">
+            <div class="cover-image-parallax" style="background-image: url('assets/cover-last.png');"></div>
+            <div class="cover-bottom-overlay">
+                <div class="hero-content">
+                    <span class="category">PURE SEDUCTION</span>
+                    <h2 class="hero-title">TEMPTATION COLLECTION</h2>
+                    <div class="cta-group" style="margin-top: var(--space-16);">
+                        <a href="#lion-collection" class="btn btn-primary">
+                            <span>See More</span>
+                            <svg width="22" height="22" viewBox="0 0 26 26" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 13H21M21 13L14 6M21 13L14 20" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Message Note Section -->
+        <section class="message-note-section">
+            <div class="message-note-content">
+                <h2>'A fragrance that lingers long after you leave'
+                </h2>
+                <p class="author-name">Maison Esther</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Reusable Footer Component -->
+    <main-footer></main-footer>
+
+</body>
+
+</html>
