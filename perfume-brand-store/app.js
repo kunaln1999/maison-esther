@@ -56,6 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
   fetchShopifyProducts();
   renderStories();
   renderNewArrivals();
+  fetchGiftDiscount();
   initFooterReveal();
 
   // Handle Save Button Clicks (Delegation)
@@ -131,8 +132,8 @@ function renderStories() {
     }
   ];
 
-  container.innerHTML = storiesData.map(story => `
-    <div class="story-card">
+  container.innerHTML = storiesData.map((story, index) => `
+    <div class="story-card" data-index="${index}">
         <video class="story-video" autoplay loop muted playsinline>
             <source src="${story.videoUrl}" type="video/mp4">
         </video>
@@ -149,7 +150,19 @@ function renderStories() {
         </div>
     </div>
   `).join('');
+
+  // Add click listeners to stories
+  container.querySelectorAll('.story-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const index = card.dataset.index;
+      if (window.openStoryOverlay) {
+        window.openStoryOverlay(storiesData[index]);
+      }
+    });
+  });
+
 }
+
 
 async function fetchShopifyProducts() {
   const grid = document.getElementById('shopify-products');
@@ -351,4 +364,25 @@ function initFooterReveal() {
 
   // Update on resize
   window.addEventListener('resize', updateMargin);
+}
+
+async function fetchGiftDiscount() {
+  const pill = document.getElementById('gift-discount-pill');
+  if (!pill) return;
+
+  try {
+    const response = await fetch(`https://YOUR_STORE.myshopify.com/api/2024-01/graphql.json`, {
+      method: 'POST',
+      headers: { 'X-Shopify-Storefront-Access-Token': 'YOUR_TOKEN', 'Content-Type': 'application/json' },
+      body: JSON.stringify({ query: `{ collections(first: 1, query: "title:Gifts") { edges { node { products(first: 1) { edges { node { variants(first: 1) { edges { node { price { amount } compareAtPrice { amount } } } } } } } } } } }` })
+    });
+    const { data } = await response.json();
+    const v = data.collections.edges[0]?.node.products.edges[0]?.node.variants.edges[0]?.node;
+    if (v?.compareAtPrice) {
+      const discount = Math.round(((v.compareAtPrice.amount - v.price.amount) / v.compareAtPrice.amount) * 100);
+      pill.textContent = `${discount}% OFF GIFT SETS`;
+    }
+  } catch (e) {
+    console.warn('Check Shopify Config');
+  }
 }

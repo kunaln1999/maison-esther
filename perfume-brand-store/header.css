@@ -162,7 +162,7 @@ main-header nav a {
     align-items: center;
 }
 
-main-header nav a::after {
+main-header .nav-links a::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -173,11 +173,11 @@ main-header nav a::after {
     display: none;
 }
 
-main-header nav a:hover::after {
+main-header .nav-links a:hover::after {
     display: block;
 }
 
-main-header nav a:hover {
+main-header .nav-links a:hover {
     opacity: 1;
 }
 
@@ -238,10 +238,14 @@ main-header.scrolled .header-top {
 }
 
 main-header.scrolled .logo,
-main-header:not(.scrolled):hover .logo,
 main-header:has(.search-mode) .logo {
     font-size: var(--size-24);
     letter-spacing: 4px;
+}
+
+main-header.scrolled .logo,
+main-header:not(.scrolled):hover .logo,
+main-header:has(.search-mode) .logo {
     color: #000000;
 }
 
