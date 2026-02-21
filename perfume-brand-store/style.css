@@ -3,7 +3,7 @@
     --primary-bg: #fefcf8;
     --text-primary: #000000;
     --text-secondary: #6E6E72;
-    --deep-grey: #121212;
+    --deep-grey: #181818;
 
 
     /* Typography - Pixel Based Even Sizes */
@@ -141,7 +141,7 @@ a {
     color: var(--primary-bg);
     text-shadow: 0px 1px var(--space-2) rgba(0, 0, 0, 0.3);
     text-transform: uppercase;
-    letter-spacing: var(--space-12);
+    letter-spacing: var(--space-8);
 }
 
 .hero-description {
@@ -202,8 +202,9 @@ a {
     color: var(--primary-bg);
 }
 
-/* Collection Section */
-.collection-section {
+/* Shared Listing Sections (Best Sellers & New Arrivals) */
+.collection-section,
+.new-arrivals-section {
     padding: var(--space-48) max(16px, 4%);
     width: 100%;
     position: relative;
@@ -215,13 +216,13 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0 auto var(--space-40) auto;
+    margin: 0 auto var(--space-24) auto;
     max-width: 1600px;
 }
 
 .section-header h2 {
     font-family: var(--font-heading);
-    font-size: clamp(24px, 4vw, 40px);
+    font-size: clamp(24px, 4vw, 32px);
     font-weight: 400;
     line-height: 1.2;
     text-transform: none;
@@ -245,10 +246,11 @@ a {
 }
 
 /* Product Grid Elements */
-.product-grid {
+.product-grid,
+.arrivals-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: var(--space-16);
+    gap: var(--space-24);
     max-width: 1600px;
     margin: 0 auto;
 }
@@ -258,6 +260,7 @@ a {
     flex-direction: column;
     text-align: left;
     cursor: pointer;
+    position: relative;
     scroll-snap-align: start;
     min-width: 0;
     background-color: #fff;
@@ -285,8 +288,8 @@ a {
 
 .btn-save {
     position: absolute;
-    top: var(--space-12);
-    right: var(--space-12);
+    top: 10px;
+    right: 10px;
     z-index: 10;
     background: transparent;
     border: none;
@@ -364,9 +367,9 @@ a {
     margin-top: auto;
     padding: 12px 0;
     width: 100%;
-    background-color: #fff;
-    border: 1px solid var(--text-primary);
-    color: var(--text-primary);
+    background-color: var(--deep-grey);
+    border: 1px solid var(--deep-grey);
+    color: #fff;
     font-family: var(--font-body);
     font-size: 14px;
     font-weight: 500;
@@ -377,7 +380,8 @@ a {
 }
 
 .btn-add-cart:hover {
-    background-color: var(--text-primary);
+    background-color: #000000;
+    border-color: #000000;
     color: #fff;
 }
 
@@ -553,14 +557,8 @@ a {
 
 .stories-section .section-header {
     padding: 0 max(16px, 4%);
-    margin-bottom: var(--space-40);
+    margin-bottom: var(--space-24);
     max-width: 1600px;
-}
-
-.section-subtitle {
-    display: block;
-    font-size: var(--size-16);
-    color: var(--text-secondary);
 }
 
 .stories-wrapper {
@@ -675,22 +673,22 @@ a {
     background-color: var(--primary-bg);
     position: relative;
     z-index: 2;
-    padding: var(--space-48) max(16px, 4%);
+    padding: 0;
 }
 
 .gift-card {
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 1600px;
-    margin: 0 auto;
-    background-color: #f7f5f0;
+    min-height: 660px;
+    background-color: var(--deep-grey);
 }
 
 @media (min-width: 1024px) {
     .gift-card {
         flex-direction: row;
-        align-items: center;
+        align-items: stretch;
+        height: 660px;
     }
 }
 
@@ -700,7 +698,7 @@ a {
 
 @media (min-width: 1024px) {
     .gift-image-container {
-        width: 50%;
+        flex: 0 0 60%;
     }
 }
 
@@ -708,7 +706,6 @@ a {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    aspect-ratio: 4 / 3;
     display: block;
 }
 
@@ -717,13 +714,14 @@ a {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: center;
     padding: var(--space-40) var(--space-24);
     box-sizing: border-box;
 }
 
 @media (min-width: 1024px) {
     .gift-content {
-        width: 50%;
+        flex: 0 0 40%;
         padding: var(--space-48) max(5vw, 64px);
     }
 }
@@ -733,9 +731,9 @@ a {
     text-transform: uppercase;
     letter-spacing: 3px;
     margin-bottom: var(--space-24);
-    color: var(--text-primary);
+    color: var(--primary-bg);
     font-weight: 600;
-    border-bottom: 1px solid var(--text-primary);
+    border-bottom: 1px solid var(--primary-bg);
     padding-bottom: 8px;
 }
 
@@ -745,7 +743,7 @@ a {
     font-weight: 400;
     font-style: italic;
     margin-bottom: var(--space-24);
-    color: var(--text-primary);
+    color: var(--primary-bg);
     line-height: 1;
     letter-spacing: -1px;
 }
@@ -753,30 +751,14 @@ a {
 .gift-content p {
     font-size: 15px;
     font-weight: 300;
-    color: var(--text-secondary);
+    color: rgba(254, 252, 248, 0.8);
     line-height: 1.8;
     margin-bottom: var(--space-40);
     font-family: var(--font-body);
 }
 
 /* New Arrivals Section */
-.new-arrivals-section {
-    padding: var(--space-48) max(16px, 4%);
-    background-color: var(--primary-bg);
-    position: relative;
-    z-index: 2;
-}
-
-.new-arrivals-section .section-container {
-    max-width: 1600px;
-    margin: 0 auto;
-}
-
-.arrivals-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--space-24);
-}
+/* Combined grid styles handled above */
 
 /* New Arrivals styles are now handled by combined grid styles above in media queries */
 
@@ -803,79 +785,9 @@ a {
     z-index: 1;
 }
 
-.cover-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: #ffffff;
-    padding: 0 24px;
-    z-index: 2;
-}
-
-.cover-content {
-    max-width: 800px;
-}
-
-.cover-content .eyebrow {
-    display: block;
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    margin-bottom: 24px;
-    font-weight: 500;
-}
-
-.cover-content h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(48px, 8vw, 84px);
-    font-weight: 400;
-    line-height: 1.1;
-    margin-bottom: 32px;
-}
-
-.cover-content p {
-    font-size: 18px;
-    line-height: 1.6;
-    margin-bottom: 48px;
-    opacity: 0.9;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.cover-content .btn-primary {
-    background: #ffffff;
-    color: #000000;
-    padding: 18px 48px;
-    border-radius: 0;
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: 600;
-    transition: all 0.4s ease;
-    text-decoration: none;
-    display: inline-block;
-}
-
-.cover-content .btn-primary:hover {
-    background: #000000;
-    color: #ffffff;
-}
-
 @media (max-width: 768px) {
     .full-screen-cover {
         height: 80vh;
-    }
-
-    .cover-content h2 {
-        font-size: 42px;
     }
 
 
@@ -897,7 +809,74 @@ a {
     background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, transparent 100%);
 }
 
+/* Trust Badges Section */
+.trust-badges-section {
+    padding: var(--space-80) max(16px, 4%);
+    background-color: var(--primary-bg);
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+    z-index: 2;
+}
 
+.trust-badges-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-48);
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .trust-badges-container {
+        grid-template-columns: 1fr;
+        gap: var(--space-40);
+    }
+}
+
+.trust-badge-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-16);
+}
+
+.trust-badge-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.03);
+    color: var(--text-primary);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.trust-badge-item:hover .trust-badge-icon {
+    transform: translateY(-5px);
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.trust-badge-title {
+    font-family: var(--font-heading);
+    font-size: var(--size-16);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: var(--space-2);
+    color: var(--text-primary);
+}
+
+.trust-badge-description {
+    font-family: var(--font-body);
+    font-size: var(--size-14);
+    font-weight: 300;
+    color: var(--text-secondary);
+    max-width: 280px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
 
 /* Message Note Section */
 .message-note-section {

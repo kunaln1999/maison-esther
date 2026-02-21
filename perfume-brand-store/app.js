@@ -277,13 +277,13 @@ function createProductCardHTML(product) {
 
   return `
         <div class="product-card">
+            <button class="btn-save" aria-label="Save product">
+                <svg width="20" height="20" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 21.5L13 18.5L7 21.5V5.5C7 4.39543 7.89543 3.5 9 3.5H17C18.1046 3.5 19 4.39543 19 5.5V21.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
             <div class="product-image-container">
                 <img src="${imageUrl}" alt="${product.title}" loading="lazy">
-                <button class="btn-save" aria-label="Save product">
-                    <svg width="20" height="20" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M19 21.5L13 18.5L7 21.5V5.5C7 4.39543 7.89543 3.5 9 3.5H17C18.1046 3.5 19 4.39543 19 5.5V21.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </button>
             </div>
             <h3 class="product-title">${product.title} <span class="product-series">| ${series}</span></h3>
             <p class="product-description">${description}</p>
