@@ -35,6 +35,12 @@
     --nav-height: 136px;
 }
 
+@media (max-width: 1024px) {
+    :root {
+        --nav-height: 64px;
+    }
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -72,6 +78,7 @@ a {
 /* Hero Section */
 .hero {
     height: 100vh;
+    height: 100dvh;
     display: flex;
     align-items: flex-end;
     justify-content: center;
@@ -140,6 +147,18 @@ a {
     text-shadow: 0px 1px var(--space-2) rgba(0, 0, 0, 0.3);
     text-transform: uppercase;
     letter-spacing: var(--space-12);
+}
+
+@media (max-width: 768px) {
+    .hero {
+        align-items: center;
+        padding-bottom: var(--space-80);
+    }
+
+    .hero-title {
+        letter-spacing: var(--space-4);
+        font-size: 36px;
+    }
 }
 
 .hero-description {
@@ -212,22 +231,23 @@ a {
 .section-header {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
     margin: 0 auto var(--space-40) auto;
     max-width: 1600px;
 }
 
 .section-header h2 {
     font-family: var(--font-heading);
-    font-size: clamp(32px, 4vw, 40px);
+    font-size: clamp(24px, 4vw, 40px);
     font-weight: 400;
+    line-height: 1.2;
     text-transform: none;
     letter-spacing: normal;
     color: var(--text-primary);
 }
 
 .view-all-link {
-    font-size: var(--size-14);
+    font-size: var(--size-13);
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: var(--space-2);
