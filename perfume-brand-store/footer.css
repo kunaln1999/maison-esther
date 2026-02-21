@@ -219,7 +219,7 @@ main-footer .social-row svg {
     }
 
     main-footer footer {
-        padding: 60px max(16px, 4%) 40px;
+        padding: 60px max(16px, 4%) calc(40px + env(safe-area-inset-bottom));
     }
 
     main-footer .footer-top .logo {
